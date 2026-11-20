@@ -57,3 +57,8 @@ remove the volume from the recharts x axis tags, slant the tags so that the bars
 Justification: I realize that having denser bars is definitely better for visibility and less horizontal scrolling on most PCS, volume indicator on x axis would get in the way of that too.
 
 Followup: LGTM mostly, but had to restyle the containers manually so that the graph would be centered and the container would be wide enough.
+
+PROMPT 7
+additionally make a table view under the bar chart with the same data
+
+Justification: It is good to have a table view for easier copy and pasting as well as raw numerical view without hoverover.

@@ -104,6 +104,36 @@ export default function StockHistoryChart({ data, symbol }: {
           />
         </BarChart>
       </div>
+      <div
+        className="mt-8 overflow-x-auto focus-visible:outline-2 focus-visible:outline-accent"
+        role="region"
+        aria-label={`${symbol} daily price data table`}
+        tabIndex={0}
+      >
+        <table className="w-full text-sm tabular-nums">
+          <caption className="pb-4 text-left font-semibold text-foreground">
+            {symbol} daily price data
+          </caption>
+          <thead className="bg-accent-soft text-foreground">
+            <tr>
+              <th scope="col" className="px-4 py-3 text-left font-semibold">Trading date</th>
+              <th scope="col" className="px-4 py-3 text-right font-semibold">Low</th>
+              <th scope="col" className="px-4 py-3 text-right font-semibold">High</th>
+              <th scope="col" className="px-4 py-3 text-right font-semibold">Volume (shares)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {chartData.map((row) => (
+              <tr key={row.day} className="border-b border-border hover:bg-accent-soft">
+                <th scope="row" className="whitespace-nowrap px-4 py-3 text-left font-medium">{row.day}</th>
+                <td className="px-4 py-3 text-right">{priceFormat.format(row.lowAverage)}</td>
+                <td className="px-4 py-3 text-right">{priceFormat.format(row.highAverage)}</td>
+                <td className="px-4 py-3 text-right">{volumeFormat.format(row.volume)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

@@ -73,3 +73,8 @@ refactor the repo in the form of
 Justification: The current repo setup is quite sloppy, so I want it to reorg the files into a more standardized way. 
 
 Followup: Forgot to put actions in the top level list too of src, so had to do that myself.
+
+PROMPT 9
+write e2e playwright tests that confirm that the nextjs frontend displays a table that conforms to the fixtures
+
+Justification: Even though we have tests for the actual action, we should test that the frontend displays what we expect, especially now that we have table view.

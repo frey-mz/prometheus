@@ -1,9 +1,4 @@
-export type DailyStockData = {
-  day: string;
-  lowAverage: number;
-  highAverage: number;
-  volume: number;
-};
+import type { DailyStockData } from "@/types/stock-data";
 
 // JSON numbers do not retain trailing zeroes, so format price tokens explicitly.
 export function formatStockJson(data: DailyStockData[]): string {

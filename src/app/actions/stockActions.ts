@@ -1,6 +1,6 @@
 "use server";
 
-import type { DailyStockData } from "../stock-data";
+import type { DailyStockData } from "@/types/stock-data";
 
 type ChartResult = {
   meta?: { exchangeTimezoneName?: string };

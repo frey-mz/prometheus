@@ -62,3 +62,12 @@ PROMPT 7
 additionally make a table view under the bar chart with the same data
 
 Justification: It is good to have a table view for easier copy and pasting as well as raw numerical view without hoverover.
+
+PROMPT 8
+refactor the repo in the form of
+-src
+--app
+--types
+--components
+
+Justification: The current repo setup is quite sloppy, so I want it to reorg the files into a more standardized way. 

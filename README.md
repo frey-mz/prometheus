@@ -23,3 +23,11 @@ Tests use Node's built-in test runner and native TypeScript support (Node 22.18+
 Comparisons sort by trading date because the page lists newest first and the chart lists oldest first. Dates and volumes must match exactly. Prices are compared at the page's displayed two decimal places; the action still returns four decimal places.
 
 See `tests/fixtures/README.md` for fixture sources. Refresh the HTML table and chart response together when changing the interval.
+
+## Source layout
+
+- `src/app`: Next.js routes, root layout, global styles, and stock server actions.
+- `src/types`: shared stock data types.
+- `src/components`: stock chart and its table view.
+
+The `@/` import alias points to `src/`. Static assets remain in `public/`, and project configuration and tests remain at the repository root.

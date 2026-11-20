@@ -10,7 +10,7 @@ import {
   type TooltipContentProps,
   type TooltipValueType,
 } from "recharts";
-import type { DailyStockData } from "./stock-data";
+import type { DailyStockData } from "@/types/stock-data";
 
 const volumeFormat = new Intl.NumberFormat("en-US");
 const priceFormat = new Intl.NumberFormat("en-US", {

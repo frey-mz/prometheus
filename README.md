@@ -31,3 +31,9 @@ See `tests/fixtures/README.md` for fixture sources. Refresh the HTML table and c
 - `src/components`: stock chart and its table view.
 
 The `@/` import alias points to `src/`. Static assets remain in `public/`, and project configuration and tests remain at the repository root.
+
+## Browser tests
+
+Run `npx playwright install chromium` once, then `npm run test:e2e`. This builds the production Next.js app and starts an isolated server on port 3100. The server uses a test-only fetch preload to return the captured TSLA chart response; no live Yahoo request is needed.
+
+The Chromium tests submit the real ticker form on desktop and mobile, verify every displayed table row against the independently captured Yahoo history HTML, check exact four-decimal prices and formatted volumes against the chart JSON, and confirm the table appears below the chart. The Yahoo HTML comparison uses cents because that fixture displays two decimal places.

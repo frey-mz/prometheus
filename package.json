@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "test": "node --test tests/stock-history.test.mjs",
-    "test:live": "node --test tests/stock-history.live.test.mjs"
+    "test:live": "node --test tests/stock-history.live.test.mjs",
+    "test:e2e": "npm run build && playwright test"
   },
   "dependencies": {
     "next": "16.4.6",
@@ -17,6 +18,7 @@
     "recharts": "^3.11.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.65.1",
     "@tailwindcss/turbopack": "4.3.3",
     "@types/node": "^20",
     "@types/react": "^19",

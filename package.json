@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "node --test tests/stock-history.test.mjs",
+    "test:live": "node --test tests/stock-history.live.test.mjs"
   },
   "dependencies": {
     "next": "16.4.6",

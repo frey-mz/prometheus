@@ -1,0 +1,130 @@
+{
+  "chart": {
+    "result": [
+      {
+        "meta": {
+          "currency": "USD",
+          "symbol": "TSLA",
+          "exchangeName": "NMS",
+          "fullExchangeName": "NasdaqGS",
+          "instrumentType": "EQUITY",
+          "firstTradeDate": 1277818200,
+          "regularMarketTime": 1795208401,
+          "hasPrePostMarketData": true,
+          "gmtoffset": -18000,
+          "timezone": "EST",
+          "exchangeTimezoneName": "America/New_York",
+          "regularMarketPrice": 345.82,
+          "regularMarketChangePercent": -7.636,
+          "fulldayPrice": 349.31,
+          "fulldayChange": -25.1,
+          "fulldayChangePercent": -6.704,
+          "fiftyTwoWeekHigh": 498.83,
+          "fiftyTwoWeekLow": 297.38,
+          "regularMarketDayHigh": 373.88,
+          "regularMarketDayLow": 344.33,
+          "regularMarketVolume": 45001860,
+          "longName": "Tesla, Inc.",
+          "shortName": "Tesla, Inc.",
+          "chartPreviousClose": 390.22,
+          "priceHint": 2,
+          "currentTradingPeriod": {
+            "pre": {
+              "timezone": "EST",
+              "start": 1795165200,
+              "end": 1795185000,
+              "gmtoffset": -18000
+            },
+            "regular": {
+              "timezone": "EST",
+              "start": 1795185000,
+              "end": 1795208400,
+              "gmtoffset": -18000
+            },
+            "post": {
+              "timezone": "EST",
+              "start": 1795208400,
+              "end": 1795222800,
+              "gmtoffset": -18000
+            }
+          },
+          "dataGranularity": "1d",
+          "range": "",
+          "validRanges": [
+            "1d",
+            "5d",
+            "1mo",
+            "3mo",
+            "6mo",
+            "1y",
+            "2y",
+            "5y",
+            "10y",
+            "ytd",
+            "max"
+          ]
+        },
+        "timestamp": [
+          1794839400,
+          1794925800,
+          1795012200,
+          1795098600,
+          1795185000
+        ],
+        "indicators": {
+          "quote": [
+            {
+              "close": [
+                379.739990234375,
+                380.1099853515625,
+                383.7200012207031,
+                374.4100036621094,
+                345.82000732421875
+              ],
+              "low": [
+                375.6300048828125,
+                374.1300048828125,
+                378.3599853515625,
+                370.80999755859375,
+                344.3299865722656
+              ],
+              "open": [
+                387.0,
+                382.19000244140625,
+                385.239990234375,
+                389.9100036621094,
+                370.2200012207031
+              ],
+              "high": [
+                389.79998779296875,
+                382.8399963378906,
+                389.2699890136719,
+                393.6000061035156,
+                373.8799133300781
+              ],
+              "volume": [
+                30242400,
+                22286700,
+                26892900,
+                26532900,
+                45001860
+              ]
+            }
+          ],
+          "adjclose": [
+            {
+              "adjclose": [
+                379.739990234375,
+                380.1099853515625,
+                383.7200012207031,
+                374.4100036621094,
+                345.82000732421875
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "error": null
+  }
+}

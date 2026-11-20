@@ -36,3 +36,10 @@ change the server action to instead get an interval of time (frontend calculates
 Justification: for testing, I will use a browser emulator to take a look at the live view of yahoo finance's website and compare numbers
 
 Followup: LGTM, it uses the docs that it wrote correctly.
+
+PROMPT 4
+write unit testing that compares the results of the server action with parsed results of the webpage: example: curl "https://finance.yahoo.com/quote/TSLA/history/?period1=1794780729&period2=1795211597" -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+
+Justification: for testing, we can compare offline and online tests against the actual webpage
+
+Followup: LGTM

@@ -1,4 +1,19 @@
-Run the app with `npm run dev`.
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Getting Started
+After installing dependencies with `npm i` or alternatives, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 Tests use Node's built-in test runner and native TypeScript support (Node 22.18+ or 24+).
 

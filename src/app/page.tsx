@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState, useState } from "react";
-import { getStockHistory } from "./actions/stockActions";
+import { getStockHistory } from "../actions/stockActions";
 import type { DailyStockData } from "@/types/stock-data";
 import StockHistoryChart from "@/components/stock-history-chart";
 

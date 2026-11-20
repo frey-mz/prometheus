@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
-import { getStockHistory } from "../src/app/actions/stockActions.ts";
+import { getStockHistory } from "../src/actions/stockActions.ts";
 import { assertHistoryMatchesPage, parseHistoryPage } from "./yahoo-history.mjs";
 
 const html = readFileSync(new URL("./fixtures/tsla-history.html", import.meta.url), "utf8");

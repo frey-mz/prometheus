@@ -71,3 +71,5 @@ refactor the repo in the form of
 --components
 
 Justification: The current repo setup is quite sloppy, so I want it to reorg the files into a more standardized way. 
+
+Followup: Forgot to put actions in the top level list too of src, so had to do that myself.

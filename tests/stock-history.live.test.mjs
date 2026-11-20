@@ -1,7 +1,7 @@
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import test from "node:test";
-import { getStockHistory } from "../src/app/actions/stockActions.ts";
+import { getStockHistory } from "../src/actions/stockActions.ts";
 import { assertHistoryMatchesPage } from "./yahoo-history.mjs";
 
 const run = promisify(execFile);

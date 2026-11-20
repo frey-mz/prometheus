@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
-import { getStockHistory } from "./actions";
+import { getStockHistory } from "./actions/stockActions";
 import { formatStockJson, type DailyStockData } from "./stock-data";
 
 type QueryState = {

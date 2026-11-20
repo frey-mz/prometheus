@@ -42,7 +42,7 @@ export default function Home() {
   );
 
   return (
-    <main className="mx-auto w-full max-w-4xl px-6 py-16 sm:py-24">
+    <main className="mx-auto w-full max-w-7xl px-6 py-16 sm:py-24">
       <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-foreground">Prometheus / Market data</p>
       <h1 className="text-4xl font-semibold tracking-tight">Daily stock price ranges.</h1>
       <p className="mt-4 max-w-2xl leading-7 text-foreground">

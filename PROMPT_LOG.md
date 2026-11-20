@@ -50,3 +50,10 @@ use recharts to make a bar chart with the action response, it and visualize that
 Justification: fulfilling requirement for visualization, I normally work with recharts with react for simple projects that don't require a lot of customization.
 
 Followup: LGTM
+
+PROMPT 6
+remove the volume from the recharts x axis tags, slant the tags so that the bars can be more densely displayed
+
+Justification: I realize that having denser bars is definitely better for visibility and less horizontal scrolling on most PCS, volume indicator on x axis would get in the way of that too.
+
+Followup: LGTM mostly, but had to restyle the containers manually so that the graph would be centered and the container would be wide enough.

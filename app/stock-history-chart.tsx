@@ -21,21 +21,7 @@ const tickPriceFormat = new Intl.NumberFormat("en-US", {
   maximumFractionDigits: 4,
 });
 
-type RangeBar = DailyStockData & { priceRange: [number, number]; axisLabel: string };
-
-function TimeTick({ x = 0, y = 0, payload }: {
-  x?: number;
-  y?: number;
-  payload?: { value: string };
-}) {
-  const [day, volume] = (payload?.value ?? "").split("\n");
-  return (
-    <text x={x} y={y} textAnchor="middle" fill="var(--muted)" fontSize={11}>
-      <tspan x={x} dy={18}>{day}</tspan>
-      <tspan x={x} dy={18}>{volume}</tspan>
-    </text>
-  );
-}
+type RangeBar = DailyStockData & { priceRange: [number, number] };
 
 function PriceTooltip({ active, payload }: TooltipContentProps<TooltipValueType, string | number>) {
   const row = payload?.[0]?.payload as RangeBar | undefined;
@@ -62,7 +48,6 @@ export default function StockHistoryChart({ data, symbol }: {
     .map((row) => ({
       ...row,
       priceRange: [row.lowAverage, row.highAverage],
-      axisLabel: `${row.day}\nVol ${volumeFormat.format(row.volume)}`,
     }));
 
   return (
@@ -73,11 +58,12 @@ export default function StockHistoryChart({ data, symbol }: {
       <div
         className="overflow-x-auto focus-visible:outline-2 focus-visible:outline-accent"
         role="region"
-        aria-label={`${symbol} daily price range chart, with trading dates and volumes on the horizontal axis and price on the vertical axis`}
+        aria-label={`${symbol} daily price range chart, with trading dates on the horizontal axis and price on the vertical axis; exact prices and volumes are available in the tooltip`}
         tabIndex={0}
       >
         <BarChart
-          width={Math.max(640, chartData.length * 124 + 100)}
+          className="mx-auto"
+          width={Math.max(640, chartData.length * 32 + 140)}
           height={420}
           data={chartData}
           margin={{ top: 16, right: 24, bottom: 24, left: 20 }}
@@ -85,13 +71,16 @@ export default function StockHistoryChart({ data, symbol }: {
         >
           <CartesianGrid vertical={false} stroke="var(--accent-soft)" strokeDasharray="3 3" />
           <XAxis
-            dataKey="axisLabel"
+            dataKey="day"
             interval={0}
-            height={64}
-            tick={<TimeTick />}
+            height={80}
+            angle={-45}
+            textAnchor="end"
+            tickMargin={8}
+            tick={{ fill: "var(--muted)", fontSize: 11 }}
             tickLine={false}
             axisLine={{ stroke: "var(--border)" }}
-            label={{ value: "Trading date · Volume (shares)", position: "insideBottom", offset: -12, fill: "var(--muted)", fontSize: 12 }}
+            label={{ value: "Trading date", position: "insideBottom", offset: -12, fill: "var(--muted)", fontSize: 12 }}
           />
           <YAxis
             domain={["dataMin", "dataMax"]}

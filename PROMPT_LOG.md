@@ -29,3 +29,10 @@ the groupStockData function can be merged into actions.ts (which can be put in a
 Justification: Fixing the above task
 
 Followup: LGTM
+
+PROMPT 3
+change the server action to instead get an interval of time (frontend calculates last month) this is so unit testing can be done
+
+Justification: for testing, I will use a browser emulator to take a look at the live view of yahoo finance's website and compare numbers
+
+Followup: LGTM, it uses the docs that it wrote correctly.

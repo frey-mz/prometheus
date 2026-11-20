@@ -72,10 +72,18 @@ function groupStockData(result: ChartResult): DailyStockData[] {
 
 export async function getStockHistory(
   symbol: string,
+  startTime: number,
+  endTime: number,
 ): Promise<DailyStockData[] | { error: string }> {
   if (typeof symbol !== "string" ||
       !/^[A-Z0-9^][A-Z0-9.^=\-]{0,29}$/i.test(symbol.trim())) {
     return { error: "Enter a valid stock ticker, such as AAPL, BRK-B, or ^GSPC." };
+  }
+
+  // Unix seconds; start is inclusive and end is exclusive.
+  if (!Number.isSafeInteger(startTime) || !Number.isSafeInteger(endTime) ||
+      startTime < 0 || startTime >= endTime) {
+    return { error: "Enter a valid time interval with a start before its end (Unix seconds)." };
   }
 
   const ticker = symbol.trim().toUpperCase();
@@ -83,7 +91,8 @@ export async function getStockHistory(
     `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(ticker)}`,
   );
   url.searchParams.set("interval", "1d");
-  url.searchParams.set("range", "1mo");
+  url.searchParams.set("period1", String(startTime));
+  url.searchParams.set("period2", String(endTime));
 
   try {
     const response = await fetch(url, {

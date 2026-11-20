@@ -17,7 +17,19 @@ export default function Home() {
     async (_previous: QueryState, form: FormData): Promise<QueryState> => {
       const symbol = String(form.get("symbol") ?? "").trim().toUpperCase();
       try {
-        const result = await getStockHistory(symbol);
+        const end = new Date();
+        const start = new Date(end);
+        // Clamp to the previous month's last day (e.g. March 31 → February 28).
+        start.setUTCMonth(start.getUTCMonth() - 1, 1);
+        const daysInMonth = new Date(Date.UTC(
+          start.getUTCFullYear(), start.getUTCMonth() + 1, 0,
+        )).getUTCDate();
+        start.setUTCDate(Math.min(end.getUTCDate(), daysInMonth));
+        const result = await getStockHistory(
+          symbol,
+          Math.floor(start.getTime() / 1000),
+          Math.floor(end.getTime() / 1000),
+        );
         if ("error" in result) return { symbol, data: null, error: result.error };
         return { symbol, data: result, error: null };
       } catch {
@@ -59,7 +71,7 @@ export default function Home() {
           </button>
         </div>
         <p id="query-details" className="mt-3 text-sm text-zinc-500">
-          <code>interval=1d</code> · <code>range=1mo</code> · Prices to 4 decimal places
+          <code>interval=1d</code> · Past month · Prices to 4 decimal places
         </p>
         <p className="mt-2 text-sm text-zinc-500">With daily bars, each day’s averages equal its reported low and high.</p>
       </form>

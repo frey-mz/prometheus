@@ -29,6 +29,7 @@ See `tests/fixtures/README.md` for fixture sources. Refresh the HTML table and c
 - `src/app`: Next.js routes, root layout, global styles, and stock server actions.
 - `src/types`: shared stock data types.
 - `src/components`: stock chart and its table view.
+- `src/actions`: server actions.
 
 The `@/` import alias points to `src/`. Static assets remain in `public/`, and project configuration and tests remain at the repository root.
 

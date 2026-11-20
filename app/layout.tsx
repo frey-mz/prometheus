@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Prometheus | Stock History",
-  description: "Query one month of stock price history and view daily JSON results.",
+  description: "Explore one month of daily stock price ranges and trading volumes.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

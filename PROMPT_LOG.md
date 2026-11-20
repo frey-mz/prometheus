@@ -43,3 +43,10 @@ write unit testing that compares the results of the server action with parsed re
 Justification: for testing, we can compare offline and online tests against the actual webpage
 
 Followup: LGTM
+
+PROMPT 5
+use recharts to make a bar chart with the action response, it and visualize that instead of the raw json. the x axis should be time (each bar should have a date and volume as its x axis tag) and the y axis should have ticks and represent price. each bar should have a low and high range (visible on hoverover) refer to the barchartrangeexample in https://recharts.github.io/en-US/api/BarChart/
+
+Justification: fulfilling requirement for visualization, I normally work with recharts with react for simple projects that don't require a lot of customization.
+
+Followup: LGTM

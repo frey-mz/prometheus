@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import { getStockHistory } from "./actions/stockActions";
 import type { DailyStockData } from "./stock-data";
 import StockHistoryChart from "./stock-history-chart";
@@ -14,6 +14,7 @@ type QueryState = {
 const initialState: QueryState = { symbol: "", data: null, error: null };
 
 export default function Home() {
+  const [ticker, setTicker] = useState("AAPL");
   const [state, formAction, pending] = useActionState(
     async (_previous: QueryState, form: FormData): Promise<QueryState> => {
       const symbol = String(form.get("symbol") ?? "").trim().toUpperCase();
@@ -56,7 +57,8 @@ export default function Home() {
             id="symbol"
             name="symbol"
             type="text"
-            defaultValue="AAPL"
+            value={ticker}
+            onChange={(event) => setTicker(event.target.value)}
             placeholder="e.g. AAPL"
             required
             maxLength={30}

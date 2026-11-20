@@ -42,14 +42,14 @@ export default function Home() {
 
   return (
     <main className="mx-auto w-full max-w-4xl px-6 py-16 sm:py-24">
-      <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-emerald-700">Prometheus / Market data</p>
+      <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-foreground">Prometheus / Market data</p>
       <h1 className="text-4xl font-semibold tracking-tight">Daily stock price ranges.</h1>
-      <p className="mt-4 max-w-2xl leading-7 text-zinc-600">
+      <p className="mt-4 max-w-2xl leading-7 text-foreground">
         Look up the last month of daily price data from Yahoo Finance.
         Results include each trading day’s average low, average high, and total volume.
       </p>
 
-      <form action={formAction} className="mt-8 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+      <form action={formAction} className="mt-8 rounded-2xl border border-border bg-surface p-6 shadow-sm">
         <label htmlFor="symbol" className="block text-sm font-medium">Stock ticker</label>
         <div className="mt-2 flex flex-col gap-3 sm:flex-row">
           <input
@@ -65,30 +65,30 @@ export default function Home() {
             spellCheck={false}
             disabled={pending}
             aria-describedby="query-details"
-            className="min-w-0 flex-1 rounded-lg border border-zinc-300 px-4 py-3 font-mono uppercase focus:outline-2 focus:outline-offset-2 focus:outline-emerald-600 disabled:opacity-60"
+            className="min-w-0 flex-1 rounded-lg border border-accent px-4 py-3 bg-surface font-mono uppercase text-foreground placeholder:normal-case placeholder:text-muted focus:outline-2 focus:outline-offset-2 focus:outline-accent disabled:cursor-wait disabled:bg-accent-soft disabled:text-foreground"
           />
-          <button type="submit" disabled={pending} className="rounded-lg bg-emerald-700 px-6 py-3 font-medium text-white hover:bg-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 disabled:cursor-wait disabled:opacity-60">
+          <button type="submit" disabled={pending} className="rounded-lg bg-accent px-6 py-3 font-medium text-surface hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-wait disabled:bg-accent-soft disabled:text-foreground">
             {pending ? "Fetching…" : "Show chart"}
           </button>
         </div>
-        <p id="query-details" className="mt-3 text-sm text-zinc-500">
+        <p id="query-details" className="mt-3 text-sm text-muted">
           <code>interval=1d</code> · Past month · Prices to 4 decimal places
         </p>
-        <p className="mt-2 text-sm text-zinc-500">With daily bars, each day’s averages equal its reported low and high.</p>
+        <p className="mt-2 text-sm text-muted">With daily bars, each day’s averages equal its reported low and high.</p>
       </form>
 
       <section aria-labelledby="results-heading" aria-busy={pending} className="mt-8">
         <div className="mb-3 flex items-center justify-between gap-4">
           <h2 id="results-heading" className="font-semibold">Daily price range</h2>
-          <p role="status" className="text-sm text-zinc-500">
+          <p role="status" className="text-sm text-foreground">
             {pending ? "Loading price data…" : state.data ? `${state.symbol} · ${state.data.length} trading days` : "Ready to query"}
           </p>
         </div>
-        {!pending && state.error && <p role="alert" className="mb-4 rounded-lg border border-red-200 bg-red-50 p-4 text-red-800">{state.error}</p>}
-        {!pending && state.data?.length === 0 && <p className="mb-3 text-sm text-zinc-600">No complete trading bars were available for this period.</p>}
+        {!pending && state.error && <p role="alert" className="mb-4 rounded-lg border border-accent bg-surface p-4 text-foreground">{state.error}</p>}
+        {!pending && state.data?.length === 0 && <p className="mb-3 text-sm text-foreground">No complete trading bars were available for this period.</p>}
         {!pending && !!state.data?.length && <StockHistoryChart data={state.data} symbol={state.symbol} />}
         {(pending || (!state.data && !state.error)) && (
-          <div className="rounded-2xl border border-dashed border-zinc-300 bg-white p-12 text-center text-sm text-zinc-500">
+          <div className="rounded-2xl border border-dashed border-accent bg-surface p-12 text-center text-sm text-muted">
             {pending ? "Fetching price data…" : "Enter a ticker to chart its daily low and high prices."}
           </div>
         )}
